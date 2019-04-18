@@ -11,5 +11,5 @@ gp_classify <- function(model, threshold) {
   stopifnot(is(model, "glm"))
   stopifnot(model$family$family == "binomial")
 
-  predict(model) > threshold
+  predict(model, type = "response") > threshold
 }

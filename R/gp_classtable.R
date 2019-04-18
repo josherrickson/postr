@@ -1,3 +1,11 @@
+#' Classification Table
+#'
+#' @param model A glm logistic model
+#' @param threshold Some numeric threshold
+#' @param ... Additional arguments to `table`.
+#'
+#' @return A table object
+#' @export
 gp_classtable <- function(model, threshold, ...) {
   stopifnot(is(model, "glm"))
   stopifnot(model$family$family == "binomial")

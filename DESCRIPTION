@@ -7,3 +7,5 @@ Maintainer: Josh Errickson <josh@errickson.net>
 Description: Easy post-modeling commands for GLMs.
 Encoding: UTF-8
 LazyData: true
+License: MIT
+RoxygenNote: 6.1.1

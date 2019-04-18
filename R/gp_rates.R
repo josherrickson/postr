@@ -1,9 +1,13 @@
-#' gp_tpr
+#' Classification Rates
+#'
+#' Returns a classification rate.
+#'
+#' @details `gp_sensitivity` and `gp_specificity` are aliases `gp_tpr` and `gp_tnr`.
 #'
 #' @param model A glm logistic model
 #' @param threshold Some numeric threshold
 #'
-#' @return The true positive rate
+#' @return A rate
 #' @export
 #' @import methods
 #' @rdname gp_rates
@@ -36,4 +40,3 @@ gp_fpr <- function(model, threshold) {
 gp_fnr <- function(model, threshold) {
   getrate(model, threshold, obs = 1, class =  0)
 }
-

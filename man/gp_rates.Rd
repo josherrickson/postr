@@ -7,7 +7,7 @@
 \alias{gp_specificity}
 \alias{gp_fpr}
 \alias{gp_fnr}
-\title{gp_tpr}
+\title{Classification Rates}
 \usage{
 gp_tpr(model, threshold)
 
@@ -27,8 +27,11 @@ gp_fnr(model, threshold)
 \item{threshold}{Some numeric threshold}
 }
 \value{
-The true positive rate
+A rate
 }
 \description{
-gp_tpr
+Returns a classification rate.
+}
+\details{
+`gp_sensitivity` and `gp_specificity` are aliases `gp_tpr` and `gp_tnr`.
 }

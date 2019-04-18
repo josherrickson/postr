@@ -2,3 +2,4 @@
 ^glmpost\.Rproj$
 Makefile
 load.R
+^\.Rproj\.user$

@@ -5,6 +5,7 @@
 #'
 #' @return The true negative rate
 #' @export
+#' @import methods
 gp_tnr <- function(model, threshold) {
   stopifnot(is(model, "glm"))
   stopifnot(model$family$family == "binomial")

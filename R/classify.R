@@ -5,6 +5,8 @@
 #'
 #' @return a vector of classifications
 #' @export
+#' @importFrom stats predict
+#' @import methods
 gp_classify <- function(model, threshold) {
   stopifnot(is(model, "glm"))
   stopifnot(model$family$family == "binomial")

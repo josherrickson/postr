@@ -5,6 +5,7 @@
 #'
 #' @return The true positive rate
 #' @export
+#' @import methods
 gp_tpr <- function(model, threshold) {
   stopifnot(is(model, "glm"))
   stopifnot(model$family$family == "binomial")

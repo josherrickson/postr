@@ -16,9 +16,13 @@ postr_AUC <- function(model, thresholds = seq(0, 1, by = .01)) {
   tpr <- c(1, postr_tpr(model, thresholds), 0)
   fpr <- c(1, postr_fpr(model, thresholds), 0)
 
-  sum(diff(c(0, thresholds, 1))*(tpr[-1] + fpr[-1])/2)
+  postr:::.AUC(c(0, thresholds, 1), tpr, fpr)
 }
 
 #' @rdname postr_AUC
 #' @export
 pr_AUC <- postr_AUC
+
+.AUC <- function(thresholds, tpr, fpr) {
+  sum(diff(thresholds)*(tpr[-1] + fpr[-1])/2)
+}

@@ -23,7 +23,7 @@ postr_ROC <- function(model,
   d <- unique(d) # Duplicate TNR/TPR slow down plotting
 
   if (AUC) {
-    auc <- round(postr_AUC(model, thresholds), 3)
+    auc <- round(.AUC(c(0, thresholds, 1), tpr, fpr), 3)
   }
 
   g <- ggplot(d, aes(x = fpr, y = tpr)) +

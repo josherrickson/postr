@@ -1,4 +1,4 @@
-#' gp_classify
+#' postr_classify
 #'
 #' @param model A glm logistic model
 #' @param threshold Some numeric threshold
@@ -7,9 +7,13 @@
 #' @export
 #' @importFrom stats predict
 #' @import methods
-gp_classify <- function(model, threshold) {
+postr_classify <- function(model, threshold) {
   stopifnot(is(model, "glm"))
   stopifnot(model$family$family == "binomial")
 
   predict(model, type = "response") > threshold
 }
+
+#' @rdname postr_classify
+#' @export
+pr_classify <- postr_classify

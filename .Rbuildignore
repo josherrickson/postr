@@ -1,5 +1,5 @@
 ^LICENSE\.md$
-^glmpost\.Rproj$
+^postr\.Rproj$
 Makefile
 load.R
 ^\.Rproj\.user$

@@ -1,4 +1,4 @@
 library(testthat)
-library(glmpost)
+library(postr)
 
-test_check("glmpost")
+test_check("postr")

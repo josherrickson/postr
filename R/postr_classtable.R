@@ -6,7 +6,7 @@
 #'
 #' @return A table object
 #' @export
-gp_classtable <- function(model, threshold, ...) {
+postr_classtable <- function(model, threshold, ...) {
   stopifnot(is(model, "glm"))
   stopifnot(model$family$family == "binomial")
 
@@ -17,3 +17,7 @@ gp_classtable <- function(model, threshold, ...) {
         Classified = factor(classified, levels = c(0,1)),
         ...)
 }
+
+#' @rdname postr_classtable
+#' @export
+pr_classtable <- postr_classtable

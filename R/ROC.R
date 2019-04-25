@@ -32,17 +32,18 @@ postr_ROC <- function(model,
   }
 
   g <- ggplot(d, aes(x = fpr, y = tpr)) +
+    geom_segment(x = 0, y = 0, xend = 1, yend = 1, color = "grey") +
     geom_point() +
     geom_line() +
-    geom_segment(x = 0, y = 0, xend = 1, yend = 1, color = "grey") +
     xlab("False Positive Rate") +
     ylab("True Positive Rate")
+
   if (AUC) {
     g <- g +
       geom_label(aes(x = 1, y = .1, label = paste("AUC =", auc)),
                  hjust = "inward")
   }
-  g
+  return(g)
 }
 
 #' @rdname postr_ROC

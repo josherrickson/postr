@@ -38,3 +38,12 @@ test_that("rates at thresholds 1 and 0", {
   expect_equal(pr_fpr(m, 0), 1)
   expect_equal(pr_fnr(m, 0), 0)
 })
+
+test_that("rates at thresholds 1 and 0", {
+  data(mtcars)
+  m <- glm(vs ~ mpg, data = mtcars, family = binomial)
+  expect_equal(pr_tpr(m, 1), 0)
+  expect_equal(pr_tnr(m, 1), 1)
+  expect_equal(pr_fpr(m, 1), 0)
+  expect_equal(pr_fnr(m, 1), 1)
+})

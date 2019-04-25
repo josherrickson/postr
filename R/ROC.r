@@ -19,11 +19,16 @@ postr_ROC <- function(model,
   }
   tpr <- c(1, postr_tpr(model, thresholds), 0)
   fpr <- c(1, postr_fpr(model, thresholds), 0)
-  d <- data.frame(tpr = rev(tpr), fpr = rev(fpr))
-  d <- unique(d) # Duplicate TNR/TPR slow down plotting
+
+  # reverse all vectors so ggplot connects points
+  # appropriately
+  d <- data.frame(thresholds = c(1, rev(thresholds), 0),
+                  tpr = rev(tpr),
+                  fpr = rev(fpr))
+  d <- d[!duplicated(d[,-1]),] # Duplicate TNR/TPR slow down plotting
 
   if (AUC) {
-    auc <- round(.AUC(c(0, thresholds, 1), tpr, fpr), 3)
+    auc <- round(.AUC(d$thresholds, rev(d$tpr), rev(d$fpr)), 3)
   }
 
   g <- ggplot(d, aes(x = fpr, y = tpr)) +

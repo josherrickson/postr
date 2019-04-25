@@ -29,3 +29,12 @@ test_that("sens and spec aliases", {
   expect_identical(postr_tnr(m, .5), postr_specificity(m, .5))
   expect_identical(postr_tnr(m, .5), pr_specificity(m, .5))
 })
+
+test_that("rates at thresholds 1 and 0", {
+  data(mtcars)
+  m <- glm(vs ~ mpg, data = mtcars, family = binomial)
+  expect_equal(pr_tpr(m, 0), 1)
+  expect_equal(pr_tnr(m, 0), 0)
+  expect_equal(pr_fpr(m, 0), 1)
+  expect_equal(pr_fnr(m, 0), 0)
+})

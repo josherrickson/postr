@@ -8,6 +8,9 @@
 #' @importFrom stats predict
 #' @import methods
 postr_classify <- function(model, threshold) {
+  if (threshold < 0 | threshold > 1) {
+    stop("Thresholds must be in [0,1]")
+  }
   stopifnot(is(model, "glm"))
   stopifnot(model$family$family == "binomial")
 

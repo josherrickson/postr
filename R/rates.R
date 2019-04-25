@@ -5,7 +5,7 @@
 #' @details `postr_sensitivity` and `postr_specificity` are aliases `postr_tpr` and `postr_tnr`.
 #'
 #' @param model A glm logistic model
-#' @param threshold Some numeric threshold
+#' @param threshold Some numeric thresholds
 #'
 #' @return A rate
 #' @export

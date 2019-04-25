@@ -42,7 +42,7 @@ pr_fnr(model, threshold)
 \arguments{
 \item{model}{A glm logistic model}
 
-\item{threshold}{Some numeric threshold}
+\item{threshold}{Some numeric thresholds}
 }
 \value{
 A rate

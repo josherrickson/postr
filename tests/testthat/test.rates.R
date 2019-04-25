@@ -40,3 +40,15 @@ test_that("rates at thresholds 1 and 0", {
   expect_equal(pr_fpr(m, 1), 0)
   expect_equal(pr_fnr(m, 1), 1)
 })
+
+test_that("improper models", {
+  expect_error(pr_tpr(1, .5))
+  expect_error(pr_tnr(1, .5))
+  expect_error(pr_fpr(1, .5))
+  expect_error(pr_fnr(1, .5))
+  m <- update(m, family = poisson)
+  expect_error(pr_tpr(m, .5))
+  expect_error(pr_tnr(m, .5))
+  expect_error(pr_fpr(m, .5))
+  expect_error(pr_fnr(m, .5))
+})

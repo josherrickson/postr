@@ -17,3 +17,8 @@ test_that("error on invalid threshold", {
   expect_error(pr_classify(m, 2))
 })
 
+test_that("Improper object", {
+  expect_error(pr_classify(1, .5), "model must be")
+  m <- update(m, family = poisson)
+  expect_error(pr_classify(m, .5), "family must be")
+})

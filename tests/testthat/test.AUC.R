@@ -14,3 +14,9 @@ test_that("returned object is appropriate", {
 test_that("pr aliases", {
   expect_identical(postr_AUC(m), pr_AUC(m))
 })
+
+test_that("Improper object", {
+  expect_error(pr_AUC(1, .5))
+  m <- update(m, family = poisson)
+  expect_error(pr_AUC(m, .5))
+})

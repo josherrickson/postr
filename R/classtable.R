@@ -7,9 +7,6 @@
 #' @return A table object
 #' @export
 postr_classtable <- function(model, threshold, ...) {
-  stopifnot(is(model, "glm"))
-  stopifnot(model$family$family == "binomial")
-
   observed <- model$data[,as.character(attributes(model$terms)$variables[[2]])]
   classified <- as.numeric(postr_classify(model, threshold))
 

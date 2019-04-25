@@ -30,15 +30,14 @@ pr_classtable(m, threshold = .4)
 #> Observed  0  1
 #>        0 13  5
 #>        1  3 11
-```
-
-``` r
 pr_sensitivity(m, threshold = .4)
 #> [1] 0.7857143
+pr_AUC(m)
+#> [1] 0.9246032
 ```
 
 ``` r
 pr_ROC(m)
 ```
 
-<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />

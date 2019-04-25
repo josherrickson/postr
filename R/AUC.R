@@ -16,18 +16,16 @@ postr_AUC <- function(model, thresholds = seq(0, 1, by = .01)) {
   tpr <- c(1, postr_tpr(model, thresholds), 0)
   fpr <- c(1, postr_fpr(model, thresholds), 0)
 
-  d <- data.frame(thresholds = c(0, thresholds, 1),
-                  tpr = tpr,
-                  fpr = fpr)
-  d <- d[!duplicated(d[,-1]),] # Duplicate TNR/TPR slow down plotting
+  tpr <- tpr[!duplicated(fpr)]
+  fpr <- fpr[!duplicated(fpr)] # Duplicate TNR/TPR slow down plotting
 
-  .AUC(d$thresholds, d$tpr, d$fpr)
+  .AUC(tpr, fpr)
 }
 
 #' @rdname postr_AUC
 #' @export
 pr_AUC <- postr_AUC
 
-.AUC <- function(thresholds, tpr, fpr) {
-  sum(diff(thresholds)*(tpr[-1] + fpr[-1])/2)
+.AUC <- function(tpr, fpr) {
+  sum(-diff(fpr)*(tpr[-1] + tpr[-length(tpr)])/2)
 }

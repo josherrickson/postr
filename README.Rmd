@@ -32,12 +32,11 @@ All functions are prefaced by `postr_` (aliased with `pr_`) to simplify the name
 
 ```{r}
 pr_classtable(m, threshold = .4)
-```
-
-```{r}
 pr_sensitivity(m, threshold = .4)
+pr_AUC(m)
 ```
 
 ```{r, dpi = 300}
 pr_ROC(m)
 ```
+

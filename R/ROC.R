@@ -20,13 +20,13 @@ postr_ROC <- function(model,
   tpr <- c(1, postr_tpr(model, thresholds), 0)
   fpr <- c(1, postr_fpr(model, thresholds), 0)
 
-  d <- data.frame(thresholds = c(0, thresholds, 1),
-                  tpr = tpr,
+  d <- data.frame(tpr = tpr,
                   fpr = fpr)
-  d <- d[!duplicated(d[,-1]),] # Duplicate TNR/TPR slow down plotting
+  d <- unique(d) # Duplicate TNR/TPR slow down plotting
 
   if (AUC) {
-    auc <- round(.AUC(d$thresholds, rev(d$tpr), rev(d$fpr)), 3)
+    dtmp <- d[!duplicated(d$fpr),]
+    auc <- round(.AUC(dtmp$tpr, dtmp$fpr), 3)
   }
 
   # reverse all vectors so ggplot connects points

@@ -9,8 +9,6 @@ status](https://travis-ci.org/josherrickson/postr.svg?branch=master)](https://tr
 [![Coverage
 status](https://codecov.io/gh/josherrickson/postr/branch/master/graph/badge.svg)](https://codecov.io/github/josherrickson/postr?branch=master)
 
-    #> Loading postr
-
 After fitting a logistic model in R using `glm`, getting classification
 rates, ROC curves and AUCs are non-trivial - they’re easy to do, but
 require coding manually every time.
@@ -43,4 +41,4 @@ pr_sensitivity(m, threshold = .4)
 pr_ROC(m)
 ```
 
-<img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />

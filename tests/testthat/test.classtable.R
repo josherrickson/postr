@@ -17,8 +17,8 @@ test_that("dimensions are always 2x2", {
 
 
 test_that("Improper object", {
-  expect_error(pr_classtable(1, .5))
+  expect_error(pr_classtable(1, .5), "model must be")
   m <- update(m, family = poisson)
-  expect_error(pr_classtable(m, .5))
+  expect_error(pr_classtable(m, .5), "family must be")
 })
 

@@ -1,0 +1,46 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+# Post estimation for GLMs in R
+
+[![Travis build status](https://travis-ci.org/josherrickson/postr.svg?branch=master)](https://travis-ci.org/josherrickson/postr)
+
+[![Coverage status](https://codecov.io/gh/josherrickson/postr/branch/master/graph/badge.svg)](https://codecov.io/github/josherrickson/postr?branch=master)
+
+```{r, echo = FALSE}
+devtools::load_all()
+```
+
+After fitting a logistic model in R using `glm`, getting classification rates, ROC curves and AUCs are non-trivial - they're easy to do, but require coding manually every time.
+
+The `postr` package simplifies this.
+
+```{r}
+data(mtcars)
+m <- glm(vs ~ gear + mpg, data = mtcars, family = binomial)
+```
+
+All functions are prefaced by `postr_` (aliased with `pr_`) to simplify the names without worrying about conflicts with other packages. For example,
+
+```{r}
+pr_classtable(m, threshold = .4)
+```
+
+```{r}
+pr_sensitivity(m, threshold = .4)
+```
+
+```{r, dpi = 300}
+pr_ROC(m)
+```

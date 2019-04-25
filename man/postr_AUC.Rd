@@ -15,7 +15,7 @@ pr_AUC(model, thresholds = seq(0, 1, by = 0.01))
 \item{thresholds}{Some numeric thresholds}
 }
 \value{
-AUCm
+AUC
 }
 \description{
 Calculate AUC

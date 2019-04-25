@@ -3,7 +3,7 @@
 #' @param model A glm logistic model
 #' @param thresholds Some numeric thresholds
 #'
-#' @return AUCm
+#' @return AUC
 #' @export
 postr_AUC <- function(model, thresholds = seq(0, 1, by = .01)) {
   thresholds <- sort(unique(thresholds))

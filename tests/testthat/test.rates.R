@@ -41,7 +41,7 @@ test_that("rates at thresholds 1 and 0", {
   expect_equal(pr_fnr(m, 1), 1)
 })
 
-test_that("improper models", {
+test_that("improper object", {
   expect_error(pr_tpr(1, .5))
   expect_error(pr_tnr(1, .5))
   expect_error(pr_fpr(1, .5))

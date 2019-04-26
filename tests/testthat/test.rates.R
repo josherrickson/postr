@@ -17,7 +17,6 @@ test_that("pr aliases", {
   r <- runif(1); expect_identical(postr_tnr(m, r), pr_tnr(m, r))
   r <- runif(1); expect_identical(postr_fpr(m, r), pr_fpr(m, r))
   r <- runif(1); expect_identical(postr_fnr(m, r), pr_fnr(m, r))
-
 })
 
 test_that("sens and spec aliases", {
@@ -42,10 +41,10 @@ test_that("rates at thresholds 1 and 0", {
 })
 
 test_that("improper object", {
-  expect_error(pr_tpr(1, .5), "model must be")
-  expect_error(pr_tnr(1, .5), "model must be")
-  expect_error(pr_fpr(1, .5), "model must be")
-  expect_error(pr_fnr(1, .5), "model must be")
+  expect_error(pr_tpr(1, .5), "rates not supported")
+  expect_error(pr_tnr(1, .5), "rates not supported")
+  expect_error(pr_fpr(1, .5), "rates not supported")
+  expect_error(pr_fnr(1, .5), "rates not supported")
   m <- update(m, family = poisson)
   expect_error(pr_tpr(m, .5), "family must be")
   expect_error(pr_tnr(m, .5), "family must be")

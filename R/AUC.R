@@ -12,7 +12,6 @@ postr_AUC <- function(model, thresholds = seq(0, 1, by = .01)) {
 #' @export
 postr_AUC.default <- function(model, thresholds = seq(0, 1, by = .01)) {
   stop(paste0("AUC not supported for class ", class(model), "."))
-
 }
 
 #' @export

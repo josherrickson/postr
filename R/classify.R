@@ -8,6 +8,19 @@
 #' @importFrom stats predict
 #' @import methods
 postr_classify <- function(model, threshold) {
+  UseMethod("postr_classify")
+}
+
+#' @export
+postr_classify.default <- function(model, threshold) {
+  stop(paste0("classify not supported for class ", class(model), "."))
+
+}
+
+#' @export
+postr_classify.glm <- function(model, threshold) {
+  .glm.families.supported(model, "binomial")
+
   if (threshold < 0 | threshold > 1) {
     stop("Thresholds must be in [0,1]")
   }

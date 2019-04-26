@@ -3,20 +3,23 @@
 #' @param model A glm logistic model
 #' @param thresholds Some numeric threshold
 #' @param AUC Logical; should AUC be printed on the plot? Default TRUE.
+#' @param sensandspec Logical; should
 #'
 #' @return ggplot object
 #' @export
 #' @import ggplot2
 postr_ROC <- function(model,
                       thresholds = seq(0, 1, by = .01),
-                      AUC = TRUE) {
+                      AUC = TRUE,
+                      sensandspec = FALSE) {
   UseMethod("postr_ROC")
 }
 
 #' @export
 postr_ROC.default <- function(model,
                               thresholds = seq(0, 1, by = .01),
-                              AUC = TRUE) {
+                              AUC = TRUE,
+                              sensandspec = FALSE) {
   stop(paste0("ROC not supported for class ", class(model), "."))
 
 }
@@ -24,7 +27,8 @@ postr_ROC.default <- function(model,
 #' @export
 postr_ROC.glm <- function(model,
                           thresholds = seq(0, 1, by = .01),
-                          AUC = TRUE) {
+                          AUC = TRUE,
+                          sensandspec = FALSE) {
   .glm.families.supported(model, "binomial")
 
   thresholds <- sort(unique(thresholds))
@@ -53,9 +57,17 @@ postr_ROC.glm <- function(model,
   g <- ggplot(d, aes(x = fpr, y = tpr)) +
     geom_segment(x = 0, y = 0, xend = 1, yend = 1, color = "grey") +
     geom_point() +
-    geom_line() +
-    xlab("False Positive Rate") +
-    ylab("True Positive Rate")
+    geom_line()
+
+  if (sensandspec) {
+    g <- g +
+      xlab("1 - Specificity") +
+      ylab("Sensitivity")
+  } else {
+    g <- g +
+      xlab("False Positive Rate") +
+      ylab("True Positive Rate")
+  }
 
   if (AUC) {
     g <- g +

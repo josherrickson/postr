@@ -24,12 +24,6 @@ postr_classify.glm <- function(model, threshold) {
   if (threshold < 0 | threshold > 1) {
     stop("Thresholds must be in [0,1]")
   }
-  if (!is(model, "glm")) {
-    stop("model must be result of `glm`")
-  }
-  if (model$family$family != "binomial") {
-    stop("glm family must be binomial")
-  }
 
   predict(model, type = "response") > threshold
 }

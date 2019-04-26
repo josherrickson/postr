@@ -14,7 +14,7 @@ test_that("pr aliases", {
 })
 
 test_that("Improper object", {
-  expect_error(pr_ROC(1, .5), "model must be")
+  expect_error(pr_ROC(1, .5), "ROC not supported")
   m <- update(m, family = poisson)
   expect_error(pr_ROC(m, .5), "family must be")
 })

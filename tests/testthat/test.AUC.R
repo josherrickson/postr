@@ -16,7 +16,7 @@ test_that("pr aliases", {
 })
 
 test_that("Improper object", {
-  expect_error(pr_AUC(1, .5), "model must be")
+  expect_error(pr_AUC(1, .5), "AUC not supported")
   m <- update(m, family = poisson)
   expect_error(pr_AUC(m, .5), "family must be")
 })

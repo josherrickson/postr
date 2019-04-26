@@ -25,7 +25,7 @@ the names without worrying about conflicts with other packages. For
 example,
 
 ``` r
-pr_classtable(m, threshold = .4)
+postr_classificationtable(m, threshold = .4)
 #>         Classified
 #> Observed  0  1
 #>        0 13  5

@@ -14,5 +14,7 @@ Imports:
   methods,
   ggplot2
 Suggests:
-    testthat,
-    covr
+  testthat,
+  covr
+Enhances:
+  lme4

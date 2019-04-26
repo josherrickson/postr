@@ -10,6 +10,23 @@
 postr_ROC <- function(model,
                       thresholds = seq(0, 1, by = .01),
                       AUC = TRUE) {
+  UseMethod("postr_ROC")
+}
+
+#' @export
+postr_ROC.default <- function(model,
+                              thresholds = seq(0, 1, by = .01),
+                              AUC = TRUE) {
+  stop(paste0("ROC not supported for class ", class(model), "."))
+
+}
+
+#' @export
+postr_ROC.glm <- function(model,
+                          thresholds = seq(0, 1, by = .01),
+                          AUC = TRUE) {
+  .glm.families.supported(model, "binomial")
+
   thresholds <- sort(unique(thresholds))
   if (min(thresholds) == 0) {
     thresholds <- thresholds[-1]

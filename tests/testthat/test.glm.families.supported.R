@@ -1,9 +1,9 @@
 context("glm family test")
 
 m <- "abc"
-class(m) <- "glm"
 suppressWarnings(m$family <- 1)
 suppressWarnings(m$family$family <- "binomial")
+class(m) <- "glm"
 
 test_that("matches correct family", {
   expect_true(.glm.families.supported(m, "binomial"))

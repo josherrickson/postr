@@ -20,12 +20,15 @@ postr_classificationtable.glm <- function(model, threshold, ...) {
   .glm.families.supported(model, "binomial")
 
   classified <- as.numeric(postr_classify(model, threshold))
-  observed <- model$data[,as.character(attributes(model$terms)$variables[[2]])]
+  observed <- postr_observed(model)
 
   table(Observed = factor(observed, levels = c(0,1)),
         Classified = factor(classified, levels = c(0,1)),
         ...)
 }
+
+#' @export
+postr_classificationtable.glmerMod <- postr_classificationtable.glm
 
 #' @rdname postr_classificationtable
 #' @export

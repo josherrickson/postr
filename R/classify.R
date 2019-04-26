@@ -28,6 +28,9 @@ postr_classify.glm <- function(model, threshold) {
   predict(model, type = "response") > threshold
 }
 
+#' @export
+postr_classify.glmerMod <- postr_classify.glm
+
 #' @rdname postr_classify
 #' @export
 pr_classify <- postr_classify

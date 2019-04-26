@@ -34,6 +34,9 @@ postr_AUC.glm <- function(model, thresholds = seq(0, 1, by = .01)) {
   .AUC(tpr, fpr)
 }
 
+#' @export
+postr_AUC.glmerMod <- postr_AUC.glm
+
 #' @rdname postr_AUC
 #' @export
 pr_AUC <- postr_AUC

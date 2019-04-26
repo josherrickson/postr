@@ -2,12 +2,12 @@
 % Please edit documentation in R/glm.families.supported.R
 \name{.glm.families.supported}
 \alias{.glm.families.supported}
-\title{(Internal) function to check GLM family support}
+\title{(Internal) function to check GLM/GLMER family support}
 \usage{
 .glm.families.supported(model, ...)
 }
 \arguments{
-\item{model}{A glm object}
+\item{model}{A glm or glmerMod object}
 
 \item{...}{any number of families, e.g. "binomial", "poisson"}
 }
@@ -16,5 +16,5 @@ TRUE if family of `model` is in list, otherwise informative
  errors if family of model is not in the list.
 }
 \description{
-(Internal) function to check GLM family support
+(Internal) function to check GLM/GLMER family support
 }

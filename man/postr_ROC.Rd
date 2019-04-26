@@ -5,11 +5,9 @@
 \alias{pr_ROC}
 \title{plot ROC curve}
 \usage{
-postr_ROC(model, thresholds = seq(0, 1, by = 0.01), AUC = TRUE,
-  sensandspec = FALSE)
+postr_ROC(model, thresholds = seq(0, 1, by = 0.01), AUC = TRUE)
 
-pr_ROC(model, thresholds = seq(0, 1, by = 0.01), AUC = TRUE,
-  sensandspec = FALSE)
+pr_ROC(model, thresholds = seq(0, 1, by = 0.01), AUC = TRUE)
 }
 \arguments{
 \item{model}{A glm logistic model}
@@ -17,8 +15,6 @@ pr_ROC(model, thresholds = seq(0, 1, by = 0.01), AUC = TRUE,
 \item{thresholds}{Some numeric threshold}
 
 \item{AUC}{Logical; should AUC be printed on the plot? Default TRUE.}
-
-\item{sensandspec}{Logical; should}
 }
 \value{
 ggplot object

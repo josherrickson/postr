@@ -26,6 +26,8 @@ postr_tpr.glm <- function(model, threshold) {
   getrate(model, threshold, obs = 1, class =  1)
 }
 
+#' @export
+postr_tpr.glmerMod <- postr_tpr.glm
 
 #' @export
 #' @rdname postr_rates
@@ -57,6 +59,9 @@ postr_tnr.glm <- function(model, threshold) {
 }
 
 #' @export
+postr_tnr.glmerMod <- postr_tnr.glm
+
+#' @export
 #' @rdname postr_rates
 pr_tnr <- postr_tnr
 
@@ -86,6 +91,9 @@ postr_fpr.glm <- function(model, threshold) {
 }
 
 #' @export
+postr_fpr.glmerMod <- postr_fpr.glm
+
+#' @export
 #' @rdname postr_rates
 pr_fpr <- postr_fpr
 
@@ -105,6 +113,9 @@ postr_fnr.glm <- function(model, threshold) {
   .glm.families.supported(model, "binomial")
   getrate(model, threshold, obs = 1, class =  0)
 }
+
+#' @export
+postr_fnr.glmerMod <- postr_fnr.glm
 
 #' @export
 #' @rdname postr_rates

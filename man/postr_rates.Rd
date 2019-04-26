@@ -2,28 +2,26 @@
 % Please edit documentation in R/rates.R
 \name{postr_tpr}
 \alias{postr_tpr}
-\alias{pr_tpr}
-\alias{postr_sensitivity}
-\alias{pr_sensitivity}
 \alias{postr_tnr}
+\alias{postr_fpr}
+\alias{postr_fnr}
 \alias{pr_tnr}
 \alias{postr_specificity}
 \alias{pr_specificity}
-\alias{postr_fpr}
 \alias{pr_fpr}
-\alias{postr_fnr}
+\alias{pr_tpr}
+\alias{postr_sensitivity}
+\alias{pr_sensitivity}
 \alias{pr_fnr}
 \title{Classification Rates}
 \usage{
 postr_tpr(model, threshold)
 
-pr_tpr(model, threshold)
-
-postr_sensitivity(model, threshold)
-
-pr_sensitivity(model, threshold)
-
 postr_tnr(model, threshold)
+
+postr_fpr(model, threshold)
+
+postr_fnr(model, threshold)
 
 pr_tnr(model, threshold)
 
@@ -31,11 +29,13 @@ postr_specificity(model, threshold)
 
 pr_specificity(model, threshold)
 
-postr_fpr(model, threshold)
-
 pr_fpr(model, threshold)
 
-postr_fnr(model, threshold)
+pr_tpr(model, threshold)
+
+postr_sensitivity(model, threshold)
+
+pr_sensitivity(model, threshold)
 
 pr_fnr(model, threshold)
 }

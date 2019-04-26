@@ -21,27 +21,6 @@ postr_tpr.default <- function(model, threshold) {
 }
 
 #' @export
-postr_tpr.glm <- function(model, threshold) {
-  .glm.families.supported(model, "binomial")
-  getrate(model, threshold, obs = 1, class =  1)
-}
-
-#' @export
-postr_tpr.glmerMod <- postr_tpr.glm
-
-#' @export
-#' @rdname postr_rates
-pr_tpr <- postr_tpr
-
-#' @export
-#' @rdname postr_rates
-postr_sensitivity <- postr_tpr
-
-#' @export
-#' @rdname postr_rates
-pr_sensitivity <- postr_tpr
-
-#' @export
 #' @rdname postr_rates
 postr_tnr <- function(model, threshold) {
   UseMethod("postr_tnr")
@@ -53,13 +32,27 @@ postr_tnr.default <- function(model, threshold) {
 }
 
 #' @export
-postr_tnr.glm <- function(model, threshold) {
-  .glm.families.supported(model, "binomial")
-  getrate(model, threshold, obs = 0, class =  0)
+#' @rdname postr_rates
+postr_fpr <- function(model, threshold) {
+  UseMethod("postr_fpr")
 }
 
 #' @export
-postr_tnr.glmerMod <- postr_tnr.glm
+postr_fpr.default <- function(model, threshold) {
+  stop(paste0("classification rates not supported for class ", class(model), "."))
+}
+#' @export
+#' @rdname postr_rates
+postr_fnr <- function(model, threshold) {
+  UseMethod("postr_fnr")
+}
+
+#' @export
+postr_fnr.default <- function(model, threshold) {
+  stop(paste0("classification rates not supported for class ", class(model), "."))
+}
+
+##### Aliases #####
 
 #' @export
 #' @rdname postr_rates
@@ -75,47 +68,19 @@ pr_specificity <- postr_tnr
 
 #' @export
 #' @rdname postr_rates
-postr_fpr <- function(model, threshold) {
-  UseMethod("postr_fpr")
-}
-
-#' @export
-postr_fpr.default <- function(model, threshold) {
-  stop(paste0("classification rates not supported for class ", class(model), "."))
-}
-
-#' @export
-postr_fpr.glm <- function(model, threshold) {
-  .glm.families.supported(model, "binomial")
-  getrate(model, threshold, obs = 0, class =  1)
-}
-
-#' @export
-postr_fpr.glmerMod <- postr_fpr.glm
-
-#' @export
-#' @rdname postr_rates
 pr_fpr <- postr_fpr
 
 #' @export
 #' @rdname postr_rates
-postr_fnr <- function(model, threshold) {
-  UseMethod("postr_fnr")
-}
+pr_tpr <- postr_tpr
 
 #' @export
-postr_fnr.default <- function(model, threshold) {
-  stop(paste0("classification rates not supported for class ", class(model), "."))
-}
+#' @rdname postr_rates
+postr_sensitivity <- postr_tpr
 
 #' @export
-postr_fnr.glm <- function(model, threshold) {
-  .glm.families.supported(model, "binomial")
-  getrate(model, threshold, obs = 1, class =  0)
-}
-
-#' @export
-postr_fnr.glmerMod <- postr_fnr.glm
+#' @rdname postr_rates
+pr_sensitivity <- postr_tpr
 
 #' @export
 #' @rdname postr_rates

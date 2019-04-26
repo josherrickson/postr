@@ -17,20 +17,6 @@ postr_classify.default <- function(model, threshold) {
 
 }
 
-#' @export
-postr_classify.glm <- function(model, threshold) {
-  .glm.families.supported(model, "binomial")
-
-  if (threshold < 0 | threshold > 1) {
-    stop("Thresholds must be in [0,1]")
-  }
-
-  predict(model, type = "response") > threshold
-}
-
-#' @export
-postr_classify.glmerMod <- postr_classify.glm
-
 #' @rdname postr_classify
 #' @export
 pr_classify <- postr_classify

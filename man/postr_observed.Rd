@@ -2,9 +2,12 @@
 % Please edit documentation in R/observed.R
 \name{postr_observed}
 \alias{postr_observed}
+\alias{pr_observed}
 \title{Return observed values}
 \usage{
 postr_observed(model)
+
+pr_observed(model)
 }
 \arguments{
 \item{model}{A support model}

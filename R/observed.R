@@ -23,5 +23,6 @@ postr_observed.glmerMod <- function(model) {
   model@frame[,1]
 }
 
+#' @rdname postr_observed
 #' @export
 pr_observed <- postr_observed

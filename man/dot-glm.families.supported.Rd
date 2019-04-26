@@ -12,7 +12,8 @@
 \item{...}{any number of families, e.g. "binomial", "poisson"}
 }
 \value{
-Informative errors if family of model is not in the list.
+TRUE if family of `model` is in list, otherwise informative
+ errors if family of model is not in the list.
 }
 \description{
 (Internal) function to check GLM family support

@@ -3,7 +3,8 @@
 #' @param model A glm object
 #' @param ... any number of families, e.g. "binomial", "poisson"
 #'
-#' @return Informative errors if family of model is not in the list.
+#' @return TRUE if family of `model` is in list, otherwise informative
+#'  errors if family of model is not in the list.
 .glm.families.supported <- function(model, ...) {
   supported <- as.vector(as.list(match.call())[-(1:2)])
   if (!(model$family$family %in% supported)) {
@@ -13,4 +14,5 @@
       stop(paste("glm family must be one of", paste(supported, collapse = ", ")))
     }
   }
+  return(TRUE)
 }

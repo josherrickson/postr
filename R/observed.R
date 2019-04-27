@@ -1,6 +1,6 @@
 #' Return observed values
 #'
-#' @param model A support model
+#' @param model A supported model
 #'
 #' @return Observed values
 #' @export

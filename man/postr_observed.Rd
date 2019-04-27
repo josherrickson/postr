@@ -10,7 +10,7 @@ postr_observed(model)
 pr_observed(model)
 }
 \arguments{
-\item{model}{A support model}
+\item{model}{A supported model}
 }
 \value{
 Observed values

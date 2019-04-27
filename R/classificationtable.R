@@ -15,6 +15,21 @@ postr_classificationtable.default <- function(model, threshold, ...) {
   stop(paste0("Classification table not supported for class ", class(model), "."))
 }
 
+#' @export
+postr_classificationtable.glm <- function(model, threshold, ...) {
+  .glm.families.supported(model, "binomial")
+
+  classified <- as.numeric(postr_classify(model, threshold))
+  observed <- postr_observed(model)
+
+  table(Observed = factor(observed, levels = c(0,1)),
+        Classified = factor(classified, levels = c(0,1)),
+        ...)
+}
+
+#' @export
+postr_classificationtable.glmerMod <- postr_classificationtable.glm
+
 #' @rdname postr_classificationtable
 #' @export
 pr_classificationtable <- postr_classificationtable

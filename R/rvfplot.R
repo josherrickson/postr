@@ -4,6 +4,7 @@
 #' @param smoothedcurve Logical; should a smoothed curve be plotted? Default: False
 #'
 #' @return A ggplot object
+#' @importFrom stats residuals fitted
 #' @export
 postr_rvfplot <- function(model, smoothedcurve = FALSE) {
   UseMethod("postr_rvfplot")

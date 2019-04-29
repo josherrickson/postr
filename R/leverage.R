@@ -3,6 +3,7 @@
 #' @param model A supported model
 #'
 #' @return Leverage values
+#' @importFrom stats hatvalues
 #' @export
 postr_leverage <- function(model) {
   UseMethod("postr_leverage")

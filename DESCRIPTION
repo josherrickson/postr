@@ -12,7 +12,8 @@ RoxygenNote: 6.1.1
 Imports:
   stats,
   methods,
-  ggplot2
+  ggplot2,
+  car
 Suggests:
   testthat,
   covr,

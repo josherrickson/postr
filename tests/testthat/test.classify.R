@@ -1,7 +1,17 @@
 context("classify")
 
+# glm
 data(mtcars)
 m <- glm(vs ~ mpg, data = mtcars, family = binomial)
+
+test_that("returned object is appropriate", {
+  expect_length(postr_classify(m, runif(1)), nrow(mtcars))
+  expect_true(is.logical(postr_classify(m, runif(1))))
+})
+
+# glmer
+library(lme4)
+m <- glmer(vs ~ mpg + (1 | gear), data = mtcars, family = binomial)
 
 test_that("returned object is appropriate", {
   expect_length(postr_classify(m, runif(1)), nrow(mtcars))

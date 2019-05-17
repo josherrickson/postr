@@ -1,7 +1,21 @@
 context("rates")
 
+## glm
 data(mtcars)
 m <- glm(vs ~ mpg, data = mtcars, family = binomial)
+
+test_that("returned object is appropriate", {
+  expect_length(postr_tpr(m, runif(1)), 1)
+  expect_is(postr_tpr(m, runif(1)), "numeric")
+  expect_is(postr_tnr(m, runif(1)), "numeric")
+  expect_is(postr_fpr(m, runif(1)), "numeric")
+  expect_is(postr_fnr(m, runif(1)), "numeric")
+
+})
+
+## glmer
+library(lme4)
+m <- glmer(vs ~ mpg + (1 | gear), data = mtcars, family = binomial)
 
 test_that("returned object is appropriate", {
   expect_length(postr_tpr(m, runif(1)), 1)

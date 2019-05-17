@@ -24,9 +24,7 @@ postr_observed.lmerMod <- function(model) {
 }
 
 #' @export
-postr_observed.glmerMod <- function(model) {
-  model@frame[,1]
-}
+postr_observed.glmerMod <- postr_observed.lmerMod
 
 #' @export
 postr_observed.lm <- function(model) {

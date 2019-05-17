@@ -19,8 +19,18 @@ postr_observed.glm <- function(model) {
 }
 
 #' @export
+postr_observed.lmerMod <- function(model) {
+  model@frame[,1]
+}
+
+#' @export
 postr_observed.glmerMod <- function(model) {
   model@frame[,1]
+}
+
+#' @export
+postr_observed.lm <- function(model) {
+  model$model[,1]
 }
 
 #' @rdname postr_observed

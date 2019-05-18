@@ -5,12 +5,14 @@
 \alias{pr_leverage}
 \title{Return leverage values}
 \usage{
-postr_leverage(model)
+postr_leverage(model, force = FALSE)
 
-pr_leverage(model)
+pr_leverage(model, force = FALSE)
 }
 \arguments{
 \item{model}{A supported model}
+
+\item{force}{Force calculation in non-supported models.}
 }
 \value{
 Leverage values

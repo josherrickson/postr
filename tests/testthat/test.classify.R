@@ -9,6 +9,11 @@ test_that("returned object is appropriate", {
   expect_true(is.logical(postr_classify(m, runif(1))))
 })
 
+test_that("Supports new data", {
+  expect_length(postr_classify(m, runif(1), newdata = mtcars[1:5,]), 5)
+  expect_error(postr_classify(m, runif(1), newdata = data.frame(a = 1)))
+})
+
 # glmer
 library(lme4)
 m <- glmer(vs ~ mpg + (1 | gear), data = mtcars, family = binomial)

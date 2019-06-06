@@ -5,18 +5,20 @@
 \alias{pr_classify}
 \title{postr_classify}
 \usage{
-postr_classify(model, threshold)
+postr_classify(model, threshold, newdata = NULL)
 
-pr_classify(model, threshold)
+pr_classify(model, threshold, newdata = NULL)
 }
 \arguments{
-\item{model}{A glm logistic model}
+\item{model}{A supported model.}
 
-\item{threshold}{Some numeric threshold}
+\item{threshold}{A numeric value in the range [0,1].}
+
+\item{newdata}{An optional dataframe of observations to classify instead of the observations used in building the model.}
 }
 \value{
-a vector of classifications
+A vector of logical classifications.
 }
 \description{
-postr_classify
+Given a model and some threshold, estimate the classification for each observation.
 }

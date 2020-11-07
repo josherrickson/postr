@@ -15,7 +15,7 @@ devtools::load_all()
 ```
 # Post estimation for GLMs in R
 
-[![R-build-check](https://github.com/josherrickson/postrar/workflows/R-build-check/badge.svg)](https://github.com/josherrickson/postr/actions)
+[![R-build-check](https://github.com/josherrickson/postr/workflows/R-build-check/badge.svg)](https://github.com/josherrickson/postr/actions)
 [![Coverage status](https://codecov.io/gh/josherrickson/postr/branch/master/graph/badge.svg)](https://codecov.io/github/josherrickson/postr?branch=master)
 
 After fitting a logistic model in R using `glm`, getting classification rates, ROC curves and AUCs are non-trivial - they're easy to do, but require coding manually every time.
